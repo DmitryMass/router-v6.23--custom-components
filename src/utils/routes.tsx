@@ -1,21 +1,15 @@
+import { QueryClient } from '@tanstack/react-query';
 import { createBrowserRouter, defer } from 'react-router-dom';
 import RootLayout from '../components/layouts/RootLayout';
+import PageError from '../components/ui/PageError';
 import AuthPage from '../pages/auth/AuthPage';
 import DashboardPage from '../pages/dashboard/DashboardPage';
 import TasksPage from '../pages/tasks/TasksPage';
-import { PATH } from './path';
-import { sleep } from './sleep';
-import PageError from '../components/ui/PageError';
-import { QueryClient } from '@tanstack/react-query';
 import { DashboardLoadedData } from '../types/requestTypes';
+import { PATH } from './path';
+import { fakeRequest } from './fakeRequest';
 
 export const queryClient = new QueryClient();
-
-export const fakeRequest = async (): Promise<DashboardLoadedData[]> => {
-  await sleep(2000);
-  return [{ id: '1' }];
-};
-
 export const router = createBrowserRouter([
   {
     path: PATH.home,

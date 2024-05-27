@@ -1,57 +1,37 @@
 import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
-import { fakeRequest } from '../../../utils/routes';
-import { DashboardPreItem } from './DashboardPreItem';
-import { teamsIcon } from '../../../utils/icons';
-import { PATH } from '../../../utils/path';
 import { DashboardLoadedData } from '../../../types/requestTypes';
+import { fakeRequest } from '../../../utils/fakeRequest';
+import { teamsIcon } from '../../../utils/icons';
+import { DashboardPreItem } from './DashboardPreItem';
 
 type TDashboardPreInfo = {
   initialData: DashboardLoadedData[];
 };
 
 export const DashboardPreInfo: FC<TDashboardPreInfo> = ({ initialData }) => {
-  console.log(initialData);
-  const { data, isFetching } = useQuery({
+  const { data }: { data: DashboardLoadedData[] } = useQuery({
     queryKey: ['fakeQueryKey'],
     queryFn: () => fakeRequest(),
     initialData,
     staleTime: 3 * 60 * 1000,
   });
 
-  console.log(isFetching, 'isFetching');
-
   return (
     <>
-      {data.length
-        ? data.map((item) => (
+      {data.length ? (
+        <div className='grid grid-cols-3 place-items-stretch gap-5'>
+          {data.map((item) => (
             <DashboardPreItem
               key={item.id}
               icon={teamsIcon}
-              title={`${item.id}`}
-              subtitle={`${item.id}`}
-              pathLink={PATH.teams}
+              title={item.title}
+              subtitle={item.subtitle}
+              pathLink={item.pathLink}
             />
-          ))
-        : null}
-      {/* <DashboardPreItem
-                    icon={teamsIcon}
-                    title='4 Active Team'
-                    subtitle='Active Team'
-                    pathLink={PATH.teams}
-                  /> */}
-      {/* <DashboardPreItem
-                  icon={memberIcon}
-                  title='24 Members'
-                  subtitle='Your Team Members'
-                  pathLink={PATH.members}
-                />
-                <DashboardPreItem
-                  icon={ongoingTaskIcon}
-                  title='16 Tasks'
-                  subtitle='Ongoing Task'
-                  pathLink={PATH.tasks}
-                /> */}
+          ))}
+        </div>
+      ) : null}
     </>
   );
 };

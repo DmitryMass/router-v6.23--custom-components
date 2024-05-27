@@ -3,7 +3,7 @@ import { ContentLayout } from '../../components/layouts/ContentLayout';
 import { DashboardPreInfo } from '../../components/pageComponents/dashboard/DashboardPreInfo';
 import { DashboardPreSkeleton } from '../../components/pageComponents/dashboard/DashboardPreSkeleton';
 import { Await, useLoaderData } from 'react-router-dom';
-import { AsyncError } from '../../components/ui/AsyncErrot';
+import { AsyncError } from '../../components/ui/AsyncError';
 import { DashboardLoadedData } from '../../types/requestTypes';
 
 type TDashboardPageLoadedData = {
