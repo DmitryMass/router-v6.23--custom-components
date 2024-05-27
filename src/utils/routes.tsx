@@ -7,12 +7,13 @@ import { PATH } from './path';
 import { sleep } from './sleep';
 import PageError from '../components/ui/PageError';
 import { QueryClient } from '@tanstack/react-query';
+import { DashboardLoadedData } from '../types/requestTypes';
 
 export const queryClient = new QueryClient();
 
-export const fakeRequest = async () => {
+export const fakeRequest = async (): Promise<DashboardLoadedData[]> => {
   await sleep(2000);
-  return [{ id: 1 }];
+  return [{ id: '1' }];
 };
 
 export const router = createBrowserRouter([
@@ -26,12 +27,15 @@ export const router = createBrowserRouter([
         errorElement: <PageError />,
         loader: async () =>
           defer({
-            dashboardLoadedData: async () =>
-              queryClient.getQueryData(['fakeQueryKey']) ??
-              (await queryClient.fetchQuery({
-                queryKey: ['fakeQueryKey'],
-                queryFn: () => fakeRequest(),
-              })),
+            dashboardLoadedData: (async (): Promise<DashboardLoadedData[]> => {
+              return (
+                queryClient.getQueryData(['fakeQueryKey']) ??
+                (await queryClient.fetchQuery({
+                  queryKey: ['fakeQueryKey'],
+                  queryFn: () => fakeRequest(),
+                }))
+              );
+            })(),
           }),
       },
       { path: PATH.tasks, element: <TasksPage /> },

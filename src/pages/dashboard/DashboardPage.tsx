@@ -4,21 +4,22 @@ import { DashboardPreInfo } from '../../components/pageComponents/dashboard/Dash
 import { DashboardPreSkeleton } from '../../components/pageComponents/dashboard/DashboardPreSkeleton';
 import { Await, useLoaderData } from 'react-router-dom';
 import { AsyncError } from '../../components/ui/AsyncErrot';
+import { DashboardLoadedData } from '../../types/requestTypes';
+
+type TDashboardPageLoadedData = {
+  dashboardLoadedData: DashboardLoadedData[];
+};
 
 const DashboardPage = () => {
-  const initialData = useLoaderData() as {
-    dashboardLoadedData: () => Promise<{}>;
-  };
-
+  const { dashboardLoadedData } = useLoaderData() as TDashboardPageLoadedData;
   return (
     <ContentLayout title='Dashboard' containerModificator='flex items-center'>
       <div className='p-5'>
         <Suspense fallback={<DashboardPreSkeleton />}>
-          <Await
-            resolve={initialData.dashboardLoadedData()}
-            errorElement={<AsyncError />}
-          >
-            {(data) => <DashboardPreInfo initialData={data} />}
+          <Await resolve={dashboardLoadedData} errorElement={<AsyncError />}>
+            {(data: DashboardLoadedData[]) => (
+              <DashboardPreInfo initialData={data} />
+            )}
           </Await>
         </Suspense>
       </div>

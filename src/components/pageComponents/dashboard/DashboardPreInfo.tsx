@@ -4,12 +4,14 @@ import { fakeRequest } from '../../../utils/routes';
 import { DashboardPreItem } from './DashboardPreItem';
 import { teamsIcon } from '../../../utils/icons';
 import { PATH } from '../../../utils/path';
+import { DashboardLoadedData } from '../../../types/requestTypes';
 
 type TDashboardPreInfo = {
-  initialData: { id: number }[];
+  initialData: DashboardLoadedData[];
 };
 
 export const DashboardPreInfo: FC<TDashboardPreInfo> = ({ initialData }) => {
+  console.log(initialData);
   const { data, isFetching } = useQuery({
     queryKey: ['fakeQueryKey'],
     queryFn: () => fakeRequest(),
