@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { linkArrowIcon } from '../../../utils/icons';
+
+import { linkArrowIcon } from '@utils/icons';
 
 type DashboardPreItemProps = {
   title: string;
@@ -16,13 +17,13 @@ export const DashboardPreItem: FC<DashboardPreItemProps> = ({
   pathLink,
 }) => {
   return (
-    <Link to={pathLink} className='border border-neutral-50 rounded-md p-5'>
-      <div className='flex justify-between items-center mb-5'>
-        <img className='size-8' src={icon} alt='icon' />
-        <img className='size-4' src={linkArrowIcon} alt='' />
+    <Link to={pathLink} className="rounded-md border border-neutral-50 p-5">
+      <div className="mb-5 flex items-center justify-between">
+        <img className="size-8" src={icon} alt="icon" />
+        <img className="size-4" src={linkArrowIcon} alt="arrow" />
       </div>
-      <p className='text-neutral-70 text-sm16 font-medium mb-1'>{subtitle}</p>
-      <h2 className='text-black font-semibold text-md24'>{title}</h2>
+      <p className="mb-1 text-sm16 font-medium text-neutral-70">{subtitle}</p>
+      <h2 className="text-md24 font-semibold text-black">{title}</h2>
     </Link>
   );
 };

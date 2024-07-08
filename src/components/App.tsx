@@ -1,6 +1,6 @@
 import { RouterProvider } from 'react-router-dom';
 import { Toaster } from 'sonner';
-import { router } from '../utils/routes';
+import { router } from '../pages/routes';
 
 const App = () => {
   return (

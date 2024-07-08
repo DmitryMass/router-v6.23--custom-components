@@ -3,9 +3,30 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      screens: {},
-      maxWidth: {
-        mainContainer: '1440px',
+      container: {
+        center: true,
+        screens: {
+          DEFAULT: '100%',
+          sm: '640px',
+          md: '768px',
+          lg: '992px',
+          xl: '1280px',
+          '2xl': '1440px',
+        },
+        padding: {
+          DEFAULT: '15px',
+          sm: '15px',
+          md: '20px',
+          lg: '20px',
+          xl: '25px',
+          '2xl': '35px',
+        },
+      },
+      screens: {
+        xxs: '450px',
+        mdPlus: '992px',
+        xs: '576px',
+        xxl: '1440px',
       },
       colors: {
         neutral: {

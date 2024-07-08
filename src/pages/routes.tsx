@@ -1,11 +1,14 @@
 import { createBrowserRouter, defer } from 'react-router-dom';
-import RootLayout from '../components/layouts/RootLayout';
-import PageError from '../components/ui/PageError';
-import AuthPage from '../pages/auth/AuthPage';
-import DashboardPage from '../pages/dashboard/DashboardPage';
-import TasksPage from '../pages/tasks/TasksPage';
-import { PATH } from './path';
-import { dashboardLoadedData } from './requests';
+
+import AuthPage from './auth/AuthPage';
+import DashboardPage from './dashboard/DashboardPage';
+import TasksPage from './tasks/TasksPage';
+
+import RootLayout from '@components/layouts/RootLayout';
+import PageError from '@components/ui/PageError';
+
+import { PATH } from '@utils/path';
+import { dashboardLoadedData } from '@utils/requests';
 
 export const router = createBrowserRouter([
   {

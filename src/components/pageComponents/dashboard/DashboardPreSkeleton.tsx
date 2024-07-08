@@ -1,26 +1,28 @@
-export const DashboardPreSkeleton = () => {
+import { FC } from 'react';
+
+export const DashboardPreSkeleton: FC = () => {
   return (
-    <div className='grid grid-cols-3 place-items-stretch gap-5'>
-      <div className='border border-neutral-50 rounded-md p-5'>
-        <div className='mb-5'>
-          <p className='size-8 bg-neutral-50 animate-pulse' />
+    <div className="grid grid-cols-3 place-items-stretch gap-5">
+      <div className="rounded-md border border-neutral-50 p-5">
+        <div className="mb-5">
+          <p className="size-8 animate-pulse bg-neutral-50" />
         </div>
-        <p className='text-neutral-70 text-sm16 font-medium mb-4 w-full bg-neutral-50 size-3 rounded-md animate-pulse' />
-        <h2 className='text-black font-semibold text-md24 w-full bg-neutral-50 size-8 rounded-md animate-pulse' />
+        <p className="mb-4 size-3 w-full animate-pulse rounded-md bg-neutral-50 text-sm16 font-medium text-neutral-70" />
+        <h2 className="size-8 w-full animate-pulse rounded-md bg-neutral-50 text-md24 font-semibold text-black" />
       </div>
-      <div className='border border-neutral-50 rounded-md p-5'>
-        <div className='mb-5'>
-          <p className='size-8 bg-neutral-50 animate-pulse' />
+      <div className="rounded-md border border-neutral-50 p-5">
+        <div className="mb-5">
+          <p className="size-8 animate-pulse bg-neutral-50" />
         </div>
-        <p className='text-neutral-70 text-sm16 font-medium mb-4 w-full bg-neutral-50 size-3 rounded-md animate-pulse' />
-        <h2 className='text-black font-semibold text-md24 w-full bg-neutral-50 size-8 rounded-md animate-pulse' />
+        <p className="mb-4 size-3 w-full animate-pulse rounded-md bg-neutral-50 text-sm16 font-medium text-neutral-70" />
+        <h2 className="size-8 w-full animate-pulse rounded-md bg-neutral-50 text-md24 font-semibold text-black" />
       </div>
-      <div className='border border-neutral-50 rounded-md p-5'>
-        <div className='mb-5'>
-          <p className='size-8 bg-neutral-50 animate-pulse' />
+      <div className="rounded-md border border-neutral-50 p-5">
+        <div className="mb-5">
+          <p className="size-8 animate-pulse bg-neutral-50" />
         </div>
-        <p className='text-neutral-70 text-sm16 font-medium mb-4 w-full bg-neutral-50 size-3 rounded-md animate-pulse' />
-        <h2 className='text-black font-semibold text-md24 w-full bg-neutral-50 size-8 rounded-md animate-pulse' />
+        <p className="mb-4 size-3 w-full animate-pulse rounded-md bg-neutral-50 text-sm16 font-medium text-neutral-70" />
+        <h2 className="size-8 w-full animate-pulse rounded-md bg-neutral-50 text-md24 font-semibold text-black" />
       </div>
     </div>
   );

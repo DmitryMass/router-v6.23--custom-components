@@ -1,7 +1,8 @@
-import { DashboardLoadedData } from '../types/requestTypes';
 import { memberIcon, ongoingTaskIcon, teamsIcon } from './icons';
 import { PATH } from './path';
 import { sleep } from './sleep';
+
+import { DashboardLoadedData } from 'types/requestTypes';
 
 export const fakeRequest = async (): Promise<DashboardLoadedData[]> => {
   await sleep(2000);
